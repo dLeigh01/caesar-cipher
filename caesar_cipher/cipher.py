@@ -37,7 +37,7 @@ def crack(cipher):
         word_count = count_words(text)
         percentage = int(word_count / len(text.split()) * 100)
 
-        if percentage > 50:
+        if percentage > 90:
             return text
     return ''
 
@@ -50,7 +50,7 @@ def count_words(text):
 
     for word in words_to_check:
         stripped_word = re.sub(r'[^A-Za-z]+', '', word)
-        if stripped_word.lower() in word_list:
+        if stripped_word.lower() in word_list or stripped_word in name_list:
             word_count += 1
         else:
             continue
